@@ -4,7 +4,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[russian]{babel}
 \usepackage{amsmath,amsthm,amssymb}
-\usepackage[margin=0.3cm]{geometry} 
+\usepackage[margin=0.1cm]{geometry} 
 \usepackage{graphicx}
 \usepackage{epsfig}
 \usepackage{wrapfig}
@@ -32,9 +32,9 @@
 \newcommand{\vars}[2]{\left(#1\right)_{#2}}
 \newcommand*{\xor}{\mathbin{\oplus}}
 
-\newenvironment{theorem}[2][Теорема]{\begin{trivlist}
+\newenvironment{theorem}[2][Т]{\begin{trivlist}
 \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
-\newenvironment{lemma}[2][Лемма]{\begin{trivlist}
+\newenvironment{lemma}[2][Л]{\begin{trivlist}
 \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
 \newenvironment{exercise}[2][Упражнение]{\begin{trivlist}
 \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
@@ -44,7 +44,7 @@
 \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
 \newenvironment{corollary}[2][Corollary]{\begin{trivlist}
 \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
-\newenvironment{definition}[2][Определение]{\begin{trivlist}
+\newenvironment{definition}[2][О]{\begin{trivlist}
 \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2}]}{\end{trivlist}}
 
 \newenvironment{solution}{\begin{proof}[Решение]}{\end{proof}}
@@ -233,7 +233,33 @@ $S_f$.
 $\binom{2n}{n} \geq \frac{2^{2n}}{2n + 1}$;
 ${\left(\frac{n}{k}\right)}^k \leq \binom{n}{k} < {\left(\frac{en}{k}\right)}^k$
 
-\section{Прочее}
-Здесь пока ничего нет, но там все изи, я верю, что вы справитесь.
+\section{Вероятность}
+\textit{Вероятностным пространством}называется конечное множество $U$, его элементы называются возможными \textit{исходами}. На
+вероятностном пространстве задана функция $Pr: U \to [0, 1]$, такая что 
+$\sum_{x \in U} Pr[x] = 1$. Функция Pr называется \textit{вероятностным распределением}, а число $Pr[x]$ называется \textit{вероятностью} исхода $x \in U$. \textit{Событием} называется произвольное подмножество $A \subseteq U$. Исходы, входящие в событие A, называются \textit{благоприятными} (для события $A$). \textit{Вероятностью} события A называется число~$Pr[A] = \sum_{x\in A} Pr[x]$.
 
+Работает формула вкл-выкл. Следствие: $Pr[\bigcup_{i} A_i] \leq \sum_{i} Pr[A_i]$.
+
+\textit{Условной вероятностью} события $A$ при условии $B$ называется число $Pr[A|B] = \frac{Pr[A \cap B]}{Pr[B]}$.
+
+\begin{theorem}{Байеса}
+Если вероятность событий A и B положительна: $Pr[A|B] \cdot Pr[B] = Pr[A] \cdot Pr[B|A]$.
+\end{theorem}
+
+Полная вероятность: $Pr[A] = \sum_{i} Pr[A|B_i] \cdot Pr[B_i]$.
+
+\begin{definition}{Мат. ожидание.}
+$E[\xi] = \sum_{i} a_i \cdot Pr[\xi = a_i]$. Оно линейно.
+\end{definition}
+
+\begin{lemma}{Неравенство Маркова}
+$Pr[\xi \geq \alpha] \leq \frac{E[\xi]}{\alpha}$
+\end{lemma}
+
+\section{ТЧ}
+Ну, это не влезло в две страницы.
+Если кому-то нужно, то напишите и сделайте pull request в репозиторий.
+
+\section{Порядки}
+Здесь можно что-нибудь написать, если место будет.
 \end{document}
