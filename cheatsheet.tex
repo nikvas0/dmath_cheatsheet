@@ -15,6 +15,7 @@
 \usepackage[usenames]{color}
 \usepackage{colortbl}
 \usepackage{tikz}
+\usepackage{hyperref} 
 
 
 \renewcommand{\geq}{\geqslant}
@@ -52,7 +53,7 @@
 
 \begin{document}
 %\maketitle
-{\center \textbf{\LARGE cheatsheet Дискра}}
+{\center \textbf{\LARGE cheatsheet Дискра} (краткий копипаст из \href{http://rubtsov.su/public/hse/2017/DM-HSE-Draft.pdf}{\underline{учебника}}.)}
 
 \section{Вычислимость}
 \begin{theorem}{Поста}
@@ -129,5 +130,26 @@ $
 всякой вычислимой функции $V : \N \times \N \to \N$ существует $n$, при котором $U_n = V_n$.
 \end{definition}
 
+\section{МТ}
+
+\begin{definition}{МТ}
+МТ состоит из
+\begin{itemize}
+\item бесконечной в две стороны ленты, в ячейках которой могут быть записаны
+символы алфавита $A$ (некоторого конечного множества);
+\item головки, которая может двигаться вдоль ленты, обозревая в каждый данный
+момент времени одну из ячеек;
+\item оперативной памяти, которая имеет конечный размер (другими словами, со-
+стояние оперативной памяти — это элемент некоторого конечного множества,
+которое называется множеством состояний МТ $Q$);
+\item таблицы переходов (или программы), которая задаёт функцию
+\[
+\delta : A \times \Q \to A \times \Q \times \{-1, 0, +1\}
+\]
+\end{itemize}
+\end{definition}
+
+\section{Прочее}
+Здесь пока ничего нет, но там все изи, я верю, что вы справитесь.
 
 \end{document}
