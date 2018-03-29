@@ -1,0 +1,134 @@
+\documentclass{article}
+
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage[margin=0.3cm]{geometry} 
+\usepackage{graphicx}
+\usepackage{epsfig}
+\usepackage{wrapfig}
+\usepackage{wasysym}
+\usepackage{stackrel} 
+\usepackage[noend]{algorithmic}
+\usepackage{moreverb}
+\usepackage[usenames]{color}
+\usepackage{colortbl}
+\usepackage{tikz}
+
+
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\leq}{\leqslant}
+
+\newcommand{\then}{\Rightarrow}
+\newcommand{\lra}{\Leftrightarrow}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\CO}{\mathbb{C}}
+
+\newcommand{\vars}[2]{\left(#1\right)_{#2}}
+\newcommand*{\xor}{\mathbin{\oplus}}
+
+\newenvironment{theorem}[2][Теорема]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Лемма]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Упражнение]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Задача]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries\large #1}\hskip \labelsep {\bfseries\large #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Вопрос]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{definition}[2][Определение]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2}]}{\end{trivlist}}
+
+\newenvironment{solution}{\begin{proof}[Решение]}{\end{proof}}
+
+\title{сheatsheet дискра.} 
+
+\begin{document}
+%\maketitle
+{\center \textbf{\LARGE cheatsheet Дискра}}
+
+\section{Вычислимость}
+\begin{theorem}{Поста}
+Множество $A \subseteq \N$ разрешимо тогда и только
+тогда, когда оба множества $A$ и $\N \setminus A$ перечислимы.
+\end{theorem}
+
+\begin{definition}{Универсальная вычислимая функция.}
+Функция  $U : \N \times \N \to \N$ называется универсальной вычислимой
+функцией для класса вычислимых функций от одной переменной, если
+\begin{enumerate}
+  \item U вычислима;
+  \item для всякой вычислимой функции $f : \N \to \N$ существует такое $n$, что для всякого $x$ верно $f(x) = U(n, x)$.
+\end{enumerate}
+
+Она существует.
+\end{definition}
+
+\begin{theorem}{Функция без всюду
+определённого вычислимого продолжения}
+Существует вычислимая функция $f : \N \to \N$, не имеющая всюду
+определённого вычислимого продолжения.
+
+Это функция $f(n) = U(n, n) + 1$.
+\end{theorem}
+
+\begin{theorem}{Перечислимое неразрешимое множество}
+Существует перечислимое неразрешимое множество $K \subseteq N$.
+
+Это область определения $U(n, n)$.
+\end{theorem}
+
+\begin{definition}{Проблема остановки}
+Рассмотрим множество $Halt \subseteq \N \times \N$, состоящее из таких пар
+$(n, x)$, что $U(n, x)$ определено. Проблема остановки состоит в выяснении того, при-
+надлежит ли данная пара множеству $Halt$.
+\end{definition}
+
+\begin{definition}{УВФ}
+Универсальная вычислимая функция $U : \N \times \N \to \N$ для класса вычислимых функций от одной переменной называется главной (или гёделевой),
+если для любой вычислимой функции $V : \N \times \N \to \N$ существует такая всюду определённая вычислимая функция $s: \N \to \N$, что для всякого $n \in \N$ и для всякого
+$x \in N$ верно $U(s(n), x) = V (n, x)$, или, другими словами, для всякого $n \in N$ верно
+$U_{s(n)} = V_n$.
+
+Примеры изменения аргументов и значений:
+\begin{itemize}
+\item $U(n, x) = U(n, f(x)) \then \exists s(n) : \forall n \in \N \text{ выполн } U_{s(n)} = V_n = U_n \circ f$
+\item $V(n, x) = f(U(n, x)) \then \exists s(n) : \forall n \in \N \text{ выполн } U_{s(n)} = V_n = f \circ U_n$
+\end{itemize}
+\end{definition}
+
+\begin{theorem}{Райса – Успенского}
+Пусть $U : \N \times \N \to \N$ — главная универсальная функция. Пусть A — нетривиальное свойство вычислимых функций.
+Тогда множество
+$
+N = \{n~|~ U_n \in A\}
+$
+не разрешимо
+\end{theorem}
+
+\begin{theorem}{Неглавная УФ}
+Существует неглавная универсальная функция для класса вычислимых функций одной переменной.
+\end{theorem}
+
+
+\begin{theorem}{Неподвижная точка}
+Пусть $U : \N \times \N \to \N$ — главная универсальная функция. Тогда для
+всякой всюду определённой вычислимой функции $h: \N \to \N$ существует $n \in \N$, при
+котором $U_n = U_{h(n)}$.
+\end{theorem}
+
+\begin{definition}{Следствие из неп точки.}
+Пусть $U : \N\times\N \to \N$ — главная универсальная функция. Тогда для
+всякой вычислимой функции $V : \N \times \N \to \N$ существует $n$, при котором $U_n = V_n$.
+\end{definition}
+
+\begin{theorem}{kek}
+\end{theorem}
+\end{document}
